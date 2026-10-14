@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Members Top | Players by Sendy</title>
+
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            padding: 20px;
+            background:
+                radial-gradient(ellipse at top, #32105f 0%, #100b20 45%, #080710 100%);
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 750px;
+            margin: auto;
+        }
+
+        /* Tombol kembali */
+        .back-button {
+            display: inline-block;
+            margin: 5px 0 25px;
+            padding: 11px 20px;
+            color: white;
+            background: linear-gradient(135deg, #8b35ff, #5420b8);
+            border: 1px solid #bd91ff;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 0 15px #842aff55;
+            transition: 0.25s;
+        }
+
+        .back-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 25px #a45cff99;
+        }
+
+        /* Judul utama */
+        .main-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(25px, 6vw, 42px);
+            font-weight: 900;
+            color: #d9b7ff;
+            text-shadow: 0 0 15px #9d4dff;
+            margin: 15px 0 8px;
+        }
+
+        .subtitle {
+            color: #c7b9df;
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+
+        .divider {
+            width: 100px;
+            height: 4px;
+            margin: 20px auto;
+            background: linear-gradient(90deg, #7b2cff, #ed8bff);
+            border-radius: 10px;
+        }
+
+        /* Kartu ranking */
+        .ranking-card {
+            position: relative;
+            overflow: hidden;
+            margin: 18px 0;
+            padding: 22px 15px;
+            border-radius: 18px;
+            background: linear-gradient(135deg, #211735, #120e20);
+            border: 1px solid #65418b;
+            box-shadow: 0 5px 25px #00000040;
+            transition: 0.25s;
+        }
+
+        .ranking-card:hover {
+            transform: translateY(-4px);
+            border-color: #bd91ff;
+            box-shadow: 0 0 22px #8b35ff44;
+        }
+
+        .ranking-icon {
+            font-size: 38px;
+            margin-bottom: 5px;
+        }
+
+        .ranking-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 19px;
+            font-weight: 700;
+            margin: 8px 0;
+        }
+
+        .active .ranking-title {
+            color: #65e9ff;
+        }
+
+        .fun .ranking-title {
+            color: #ffcc70;
+        }
+
+        .mabar .ranking-title {
+            color: #b99aff;
+        }
+
+        .ranking-description {
+            color: #c9bfd9;
+            font-size: 13px;
+            margin-bottom: 15px;
+        }
+
+        /* Nama pemenang */
+        .member-name {
+            display: block;
+            width: 100%;
+            max-width: 420px;
+            margin: 8px auto;
+            padding: 11px;
+            color: #f0e6ff;
+            background: #ffffff0b;
+            border: 1px dashed #765a97;
+            border-radius: 10px;
+            font-weight: 600;
+        }
+
+        .member-name span {
+            color: #a995c9;
+            font-weight: 400;
+        }
+
+        /* Bagian rules */
+        .rules-box {
+            margin-top: 40px;
+            padding: 22px 18px;
+            background: linear-gradient(145deg, #21152e, #130d1c);
+            border: 1px solid #7144a0;
+            border-radius: 18px;
+            text-align: left;
+            box-shadow: 0 0 25px #842aff22;
+        }
+
+        .rules-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 23px;
+            text-align: center;
+            color: #d8b4ff;
+            margin: 0 0 8px;
+        }
+
+        .rules-subtitle {
+            text-align: center;
+            color: #b9a8d1;
+            font-size: 12px;
+            margin-bottom: 22px;
+        }
+
+        .rule {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin: 12px 0;
+            padding: 12px;
+            background: #ffffff08;
+            border-radius: 10px;
+            line-height: 1.7;
+            font-size: 13px;
+            color: #eee5f9;
+        }
+
+        .rule-number {
+            flex-shrink: 0;
+            color: #d3a6ff;
+            font-weight: 700;
+            min-width: 23px;
+        }
+
+        .footer {
+            color: #9f8bb8;
+            font-size: 12px;
+            margin: 25px 0 15px;
+        }
+
+        @media (max-width: 400px) {
+            body {
+                padding: 12px;
+            }
+
+            .ranking-card {
+                padding: 18px 10px;
+            }
+
+            .rules-box {
+                padding: 18px 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- TOMBOL KEMBALI ATAS -->
+    <a class="back-button" href="index.html">
+        ← KEMBALI KE HALAMAN UTAMA
+    </a>
+
+    <!-- JUDUL -->
+    <h1 class="main-title">MEMBERS TOP</h1>
+
+    <p class="subtitle">
+        🏆 PLAYERS BY SENDY • MEMBER APPRECIATION
+    </p>
+
+    <div class="divider"></div>
+
+    <p style="color: #ded0f2; font-size: 14px;">
+        members top bulan ini kira kira siap ya? <br>
+        ini dia top members bulan ini!
+    </p>
+
+    <!-- TOP AKTIF -->
+    <div class="ranking-card active">
+        <div class="ranking-icon">⚡</div>
+        <h2 class="ranking-title">TOP AKTIF</h2>
+
+        <p class="ranking-description">
+            Member yang paling aktif di grup.
+        </p>
+
+        <div class="member-name">
+            🥇 Nama Member
+            <br>
+            <span>Ganti dengan nama pemenang</span>
+        </div>
+    </div>
+
+    <!-- TOP ASIK -->
+    <div class="ranking-card fun">
+        <div class="ranking-icon">😎</div>
+        <h2 class="ranking-title">TOP ASIK</h2>
+
+        <p class="ranking-description">
+            Member yang asik diajak ngobrol.
+        </p>
+
+        <div class="member-name">
+            🥇 Nama Member
+            <br>
+            <span>Ganti dengan nama pemenang</span>
+        </div>
+    </div>
+
+    <!-- TOP SI MABAR -->
+    <div class="ranking-card mabar">
+        <div class="ranking-icon">🎮</div>
+        <h2 class="ranking-title">TOP yg sering mabar</h2>
+
+        <p class="ranking-description">
+            Member yang paling sering ngajak mabar.
+        </p>
+
+        <div class="member-name">
+            🥇 Nama Member
+            <br>
+            <span>Ganti dengan nama pemenang</span>
+        </div>
+    </div>
+
+    <!-- RULES -->
+    <div class="rules-box">
+
+        <h2 class="rules-title">📜 GROUP RULES</h2>
+
+        <p class="rules-subtitle">
+            Biar grup tetap seru, menyenangkan dan asik!
+        </p>
+
+        <div class="rule">
+            <span class="rule-number">1️⃣</span>
+            <span>Boleh bercanda, tapi jangan berlebihan.</span>
+        </div>
+
+        <div class="rule">
+            <span class="rule-number">2️⃣</span>
+            <span>Bebas menambahkan siapa saja ke grup.</span>
+        </div>
+
+        <div class="rule">
+            <span class="rule-number">3️⃣</span>
+            <span>Jika baru datang ke grup, jangan lupa perkenalkan diri dulu :p</span>
+        </div>
+
+        <div class="rule">
+            <span class="rule-number">4️⃣</span>
+            <span>TOPIK BEBAS! Ngobrolin apa saja selama tetap menghormati anggota lain.</span>
+        </div>
+
+        <div class="rule">
+            <span class="rule-number">5️⃣</span>
+            <span>Boleh membawa masalah pribadi ke grup kalau kamu ingin curhat. Tetap jaga privasi, ya.</span>
+        </div>
+
+        <div class="rule">
+            <span class="rule-number">6️⃣</span>
+            <span>Dilarang berkata kasar, toxic, atau menghina anggota lain.</span>
+        </div>
+
+        <div class="rule">
+            <span class="rule-number">7️⃣</span>
+            <span>Dilarang mengirim stiker atau jokes yang membahas hal berbau 18+ maupun menghina kelompok atau identitas orang lain.</span>
+        </div>
+
+        <div class="rule">
+            <span class="rule-number">8️⃣</span>
+            <span>Dilarang spam stiker. Maksimal 10 kali untuk member, 25 kali untuk admin, dan tidak terbatas untuk owner.</span>
+        </div>
+
+        <div class="rule">
+            <span class="rule-number">9️⃣</span>
+            <span>Dilarang menghina istri admin, kecuali admin yang bersangkutan.</span>
+        </div>
+
+        <div class="rule">
+            <span class="rule-number">🔟</span>
+            <span>Dilarang melakukan bullying atau merendahkan sesama anggota GROUP.</span>
+        </div>
+
+    </div>
+
+    <p class="footer">
+        ✦ PLAYERS BY SENDY & Website by Alpi1you ✦<br>
+        Stay chill, stay friendly, have fun! 💜
+    </p>
+
+    <!-- TOMBOL KEMBALI BAWAH -->
+    <a class="back-button" href="index.html">
+        ← KEMBALI KE HALAMAN UTAMA
+    </a>
+
+</div>
+
+</body>
+</html>
