@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PLAYERS BY SENDY & Website by Alpi1you</title>
+
+    <!-- FONT -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            padding: 20px 14px;
+            min-height: 100vh;
+            background:
+                radial-gradient(ellipse at top, #32105f 0%, #100b20 48%, #080710 100%);
+            color: white;
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .container {
+            max-width: 750px;
+            margin: auto;
+        }
+
+        /* HERO / JUDUL */
+        .hero {
+            padding: 35px 15px 25px;
+            margin-bottom: 25px;
+            background: linear-gradient(145deg, #211735, #100b1d);
+            border: 1px solid #65418b;
+            border-radius: 22px;
+            box-shadow: 0 0 30px #842aff22;
+            animation: muncul 0.8s ease;
+        }
+
+        .logo {
+            font-size: 45px;
+            margin-bottom: 5px;
+        }
+
+        .judul-utama {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 900;
+            font-size: clamp(25px, 6vw, 39px);
+            line-height: 1.4;
+            margin: 10px 0;
+            color: #e0c5ff;
+            text-shadow: 0 0 18px #a45cff;
+        }
+
+        .tagline {
+            color: #c9b9e0;
+            font-size: 13px;
+            letter-spacing: 1px;
+        }
+
+        .badge {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 7px 13px;
+            background: #8b35ff22;
+            border: 1px solid #9d5aff;
+            border-radius: 30px;
+            color: #d9b7ff;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        /* JUDUL BAGIAN */
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 22px;
+            color: #d9b7ff;
+            text-shadow: 0 0 12px #8b35ff55;
+            margin: 35px 0 8px;
+        }
+
+        .section-desc {
+            font-size: 13px;
+            color: #b9a8d1;
+            margin-bottom: 20px;
+        }
+
+        /* KARTU ADMIN */
+        .anggota {
+            display: flex;
+            align-items: center;
+            text-align: left;
+            gap: 14px;
+            padding: 16px;
+            margin: 13px auto;
+            max-width: 550px;
+            background: linear-gradient(120deg, #211735, #151020);
+            border: 1px solid #49335f;
+            border-radius: 16px;
+            transition: 0.25s;
+            animation: muncul 0.7s ease both;
+        }
+
+        .anggota:hover {
+            transform: translateY(-3px);
+            border-color: #bd91ff;
+            box-shadow: 0 0 18px #842aff33;
+        }
+
+        .avatar {
+            flex-shrink: 0;
+            width: 52px;
+            height: 52px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 15px;
+            background: #8b35ff22;
+            border: 1px solid #8b5ac0;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 19px;
+            font-weight: 900;
+        }
+
+        .info {
+            min-width: 0;
+        }
+
+        .info h3 {
+            font-size: 17px;
+            margin: 0 0 3px;
+            font-weight: 700;
+        }
+
+        .info p {
+            color: #b9a8d1;
+            font-size: 12px;
+            margin: 0;
+        }
+
+        .role {
+            display: inline-block;
+            margin-top: 6px;
+            padding: 3px 9px;
+            border-radius: 20px;
+            background: #ffffff0c;
+            color: #d9b7ff;
+            font-size: 10px;
+        }
+
+        /* TOMBOL */
+        .tombol {
+            display: block;
+            width: 100%;
+            max-width: 390px;
+            margin: 12px auto;
+            padding: 15px 18px;
+            border: 1px solid transparent;
+            border-radius: 13px;
+            color: white;
+            text-decoration: none;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.25s;
+        }
+
+        .tombol:hover {
+            transform: translateY(-3px);
+            filter: brightness(1.12);
+        }
+
+        .tombol:active {
+            transform: scale(0.97);
+        }
+
+        .tombol-members {
+            background: linear-gradient(135deg, #8b35ff, #5420b8);
+            border-color: #bd91ff;
+            box-shadow: 0 5px 20px #842aff33;
+        }
+
+        .tombol-wa {
+            background: linear-gradient(135deg, #25d366, #128c4b);
+            border-color: #52f28d;
+            box-shadow: 0 5px 20px #25d36622;
+        }
+
+        /* DESKRIPSI GRUP */
+        .deskripsi {
+            margin: 30px auto 20px;
+            padding: 22px 17px;
+            max-width: 600px;
+            background: linear-gradient(145deg, #211735, #130d1c);
+            border: 1px solid #7144a0;
+            border-radius: 18px;
+            box-shadow: 0 0 25px #842aff22;
+        }
+
+        .deskripsi h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 19px;
+            line-height: 1.5;
+            color: #d9b7ff;
+            margin-top: 0;
+        }
+
+        .deskripsi p {
+            color: #d3c7e2;
+            font-size: 13px;
+            line-height: 1.9;
+        }
+
+        .game-tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 17px;
+        }
+
+        .game-tag {
+            padding: 7px 12px;
+            border: 1px solid #67478b;
+            border-radius: 30px;
+            background: #ffffff08;
+            color: #dfccff;
+            font-size: 11px;
+        }
+
+        /* FOOTER */
+        .footer {
+            margin: 35px 0 10px;
+            padding-top: 20px;
+            border-top: 1px solid #382747;
+            color: #9f8bb8;
+            font-size: 11px;
+            line-height: 2;
+        }
+
+        @keyframes muncul {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 400px) {
+            body {
+                padding: 12px 10px;
+            }
+
+            .hero {
+                padding: 25px 10px;
+            }
+
+            .anggota {
+                padding: 13px 11px;
+                gap: 11px;
+            }
+
+            .avatar {
+                width: 45px;
+                height: 45px;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- BAGIAN PEMBUKA -->
+    <header class="hero">
+
+        <div class="logo">🎮</div>
+
+        <h1 class="judul-utama">
+            PLAYERS<br>BY SENDY 
+        </h1>
+
+        <p class="tagline">
+            ONE GROUP • MANY FRIENDS • ENDLESS FUN
+        </p>
+
+        <div class="badge">
+            ✦ WELCOME TO OUR COMMUNITY ✦
+        </div>
+
+    </header>
+
+    <!-- DAFTAR ADMIN -->
+    <h2 class="section-title">OUR ADMINS</h2>
+
+    <p class="section-desc">
+        Kenalan dulu dengan para Admin! 👑
+    </p>
+
+    <div class="anggota">
+        <div class="avatar" style="color:#7395ff;">S</div>
+        <div class="info">
+            <h3 style="color:#7395ff;">Sendy</h3>
+            <p>Pendiri dan pemilik grup.</p>
+            <span class="role">👑 OWNER</span>
+        </div>
+    </div>
+
+    <div class="anggota">
+        <div class="avatar" style="color:#38b5c5;">E</div>
+        <div class="info">
+            <h3 style="color:#38b5c5;">Eegoo</h3>
+            <p>Admin promosi , khusus promosi biar rame</p>
+            <span class="role">📢 ADMIN PROMOSI</span>
+        </div>
+    </div>
+
+    <div class="anggota">
+        <div class="avatar" style="color:#eeeeee;">F</div>
+        <div class="info">
+            <h3 style="color:#eeeeee;">Fadhil</h3>
+            <p>Admin Ramah suka ngajak ngobrol.</p>
+            <span class="role">🤝 ADMIN</span>
+        </div>
+    </div>
+
+    <div class="anggota">
+        <div class="avatar" style="color:#ff626f;">N</div>
+        <div class="info">
+            <h3 style="color:#ff626f;">Nitdzee</h3>
+            <p>Admin old alias sepuh jir 🗿</p>
+            <span class="role">🔥 ADMIN SEPUH</span>
+        </div>
+    </div>
+
+    <div class="anggota">
+        <div class="avatar" style="color:#48a5ff;">A</div>
+        <div class="info">
+            <h3 style="color:#48a5ff;">Alpi1you</h3>
+            <p>Admin old, banyak kontribusi untuk grup!</p>
+            <span class="role">⚡ ADMIN TERMUDA</span>
+        </div>
+    </div>
+
+    <!-- TOMBOL NAVIGASI -->
+    <h2 class="section-title">LET'S CONNECT!</h2>
+
+    <p class="section-desc">
+        Yuk, ikuti kami dan bergabung ke grup players!
+    </p>
+
+    <button
+        class="tombol tombol-members"
+        id="tombolAdmin"
+        type="button">
+        🏆 LIHAT HALAMAN MEMBERS TOP
+    </button>
+
+    <a
+        class="tombol tombol-wa"
+        href="https://chat.whatsapp.com/JGXOWKxerU5ASiieme3YrD"
+        target="_blank"
+        rel="noopener noreferrer">
+        🟢 JOIN GRUP WHATSAPP 🚀
+    </a>
+
+    <!-- DESKRIPSI -->
+    <section class="deskripsi">
+
+        <h2>🎮 grup mabar dan ngobrol paling asik!</h2>
+
+        <p>
+            Lagi cari teman ngobrol atau teman main game?
+            ayo join GRUP PLAYERS! 🤝
+        </p>
+
+        <p>
+            Ngobrol santai, kenalan dengan teman baru,
+            berbagi cerita, dan cari partner mabar.
+            Semua bisa ikut meramaikan!
+        </p>
+
+        <div class="game-tags">
+            <span class="game-tag">⛏️ Minecraft</span>
+            <span class="game-tag">⚔️ MLBB</span>
+            <span class="game-tag">🎲 Roblox</span>
+            <span class="game-tag">🎮 Game lainnya</span>
+        </div>
+
+        <p style="margin-bottom:0;">
+            <b style="color:#d9b7ff;">
+                Gabung sekarang dan ramaikan grup nya! 💜
+            </b>
+        </p>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        ✦ PLAYERS BY SENDY & Website by Alpi1you ✦<br>
+        Stay chill, stay friendly, have fun! 💜<br>
+        Made with 🔥 by the Players community
+    </footer>
+
+</div>
+
+<script>
+    document.getElementById("tombolAdmin").addEventListener("click", function() {
+        window.location.assign("Admin.html");
+    });
+</script>
+
+</body>
+</html>
